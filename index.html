@@ -112,7 +112,7 @@
                     <img src="figs/problem3.png" alt="Technical Challenge" 
                          style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                     <p style="font-size: 1em; color: #555; margin-top: 12px; font-weight: 500;">
-                        Complexity of radar multi-bounce reflection paths in ego-dynamic environments
+                        Typical urban occlusion scenario with hidden pedestrians
                     </p>
                 </div>
             
@@ -120,20 +120,18 @@
                     <img src="figs/path5.png" alt="Urban Scenario" 
                          style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                     <p style="font-size: 1em; color: #555; margin-top: 12px; font-weight: 500;">
-                        Typical urban occlusion scenario with hidden pedestrians
+                        Complexity of radar multi-bounce reflection paths in ego-dynamic environments
                     </p>
                 </div>
             </div>
     
-        <div style="margin-bottom: 30px;">
+        <div style="margin-bottom: 30px; line-height: 1.8; color: #333; text-align: justify;">
             <p>
-                Perceiving pedestrians in <strong>Non-Line-of-Sight (NLOS)</strong> regions is a critical yet formidable challenge for autonomous driving. Unlike direct observation, identifying hidden objects in <strong>real-world ego-dynamic environments</strong> involves significant technical hurdles:
+                Perceiving pedestrians in <strong>Non-Line-of-Sight (NLOS)</strong> regions is a critical yet formidable challenge for autonomous driving. Unlike direct observation, identifying hidden objects in <strong>real-world ego-dynamic environments</strong> involves significant technical hurdles. 
             </p>
-            <ul style="line-height: 1.8; color: #444;">
-                <li><strong>Geometric Distortion:</strong> Radar signals undergo multi-bounce reflections off urban structures, causing the perceived object position to be spatially shifted from its actual location.</li>
-                <li><strong>Ego-Dynamic Noise:</strong> Continuous motion of the ego-vehicle introduces frame-by-frame observational variances and increases environmental clutter, making stable detection difficult.</li>
-                <li><strong>Contextual Ambiguity:</strong> Without direct visual lines, the system must rely on sparse radar returns and prior structural knowledge to reconstruct physically valid propagation paths.</li>
-            </ul>
+            <p>
+                The primary difficulty stems from <strong>geometric distortion</strong>, where radar signals undergo multi-bounce reflections off urban structures, causing the perceived object position to be spatially shifted from its actual location. This issue is further compounded by <strong>ego-dynamic noise</strong>, as the continuous motion of the vehicle introduces frame-by-frame observational variances and environmental clutter. Ultimately, the lack of direct visual lines leads to <strong>contextual ambiguity</strong>, forcing the system to rely on sparse radar returns and prior structural knowledge to reconstruct physically valid propagation paths.
+            </p>
         </div>
     
         <div class="abstract-box">
@@ -180,7 +178,7 @@
 
     <div class="ack">
         <p><strong>Acknowledgement</strong></p>
-        <p>This work was supported by Seoul National University and Samsung.</p>
+        <p>This work was supported by Seoul National University.</p>
     </div>
 
 </body>
