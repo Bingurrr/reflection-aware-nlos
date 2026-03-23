@@ -195,37 +195,28 @@
     <div class="section">
         <h2>Introduction</h2>
     
-        <div style="display: flex; flex-direction: column; gap: 30px; margin-bottom: 35px;">
+        <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
             <div style="width: 100%; text-align: center;">
-                <img src="figs/problem3.png" alt="NLOS Scenario" 
+                <img src="figs/problem3.png" alt="NLOS Scenario Illustration" 
                      style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                <p style="font-size: 0.95em; color: #555; margin-top: 15px; font-weight: 500; text-align: justify; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-                    <strong>Fig. 1: Illustration of an NLOS pedestrian scenario from the ego-vehicle perspective.</strong> 
-                    (a) While driving through narrow urban alleys, regions between buildings fall outside the Line-of-Sight (LOS), making direct detection difficult. 
-                    (b) By leveraging reflective wave propagation, indirect spatial evidence can be obtained even when the target is occluded. 
-                    (c) Based on reflection-aware reasoning, the position of the NLOS object can be inferred despite the absence of direct visibility.
-                </p>
             </div>
-    
-            <div style="width: 100%; text-align: center;">
-                <img src="figs/path5.png" alt="Radar PCD Challenges" 
-                     style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                <p style="font-size: 0.95em; color: #555; margin-top: 15px; font-weight: 500; text-align: justify; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-                    <strong>Fig. 2: Reflection path diversity and challenges in mmWave radar observations.</strong> 
-                    (a) Radar Point Cloud Data (PCD) in BEV appears sparse and noisy, making informative observations difficult to identify. 
-                    (b–d) Geometric strategies for object localization vary depending on the reflection order (1st, 2nd, and 3rd bounce). 
-                    (e) Structurally inconsistent noise and ego-dynamic variances further complicate the interpretation of multi-bounce reflection paths.
+            <div style="line-height: 1.8; color: #333; text-align: justify;">
+                <p>
+                    Perceiving pedestrians in <strong>Non-Line-of-Sight (NLOS)</strong> regions is a critical yet formidable challenge for autonomous driving. In narrow urban environments, such as alleys or dense intersections, significant regions often fall outside the vehicle's direct Line-of-Sight (LOS). While these occluded areas make direct detection impossible, they can be indirectly observed by leveraging <strong>reflective wave propagation</strong>. By analyzing how signals bounce off surrounding structures, it is possible to obtain spatial evidence of hidden targets and infer their precise positions despite the absence of direct visibility.
                 </p>
             </div>
         </div>
     
-        <div style="margin-bottom: 30px; line-height: 1.8; color: #333; text-align: justify;">
-            <p>
-                Perceiving pedestrians in <strong>Non-Line-of-Sight (NLOS)</strong> regions is a critical yet formidable challenge for autonomous driving. Unlike direct observation, identifying hidden objects in <strong>real-world ego-dynamic environments</strong> involves significant technical hurdles. 
-            </p>
-            <p>
-                The primary difficulty stems from <strong>geometric distortion</strong>, where radar signals undergo multi-bounce reflections, causing the perceived object position to be spatially shifted. This is further compounded by <strong>ego-dynamic noise</strong>, where vehicle motion introduces frame-by-frame variances. Ultimately, the system must rely on sparse radar returns and prior structural knowledge to reconstruct physically valid propagation paths.
-            </p>
+        <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
+            <div style="width: 100%; text-align: center;">
+                <img src="figs/path5.png" alt="Radar PCD Challenges" 
+                     style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            </div>
+            <div style="line-height: 1.8; color: #333; text-align: justify;">
+                <p>
+                    However, achieving reliable NLOS perception using mmWave radar Point Cloud Data (PCD) presents several technical hurdles. First, radar observations in <strong>ego-dynamic conditions</strong> are inherently sparse and frequently corrupted by environmental clutter and measurement noise. Second, because radar signals propagate through <strong>multi-bounce reflection paths</strong> (1st, 2nd, and 3rd order), the perceived objects appear spatially distorted from their actual locations. This complexity requires the system to accurately estimate reflective surfaces and reconstruct physically valid propagation trajectories to overcome structurally inconsistent noise and contextual ambiguity.
+                </p>
+            </div>
         </div>
     
         <div class="abstract-box">
