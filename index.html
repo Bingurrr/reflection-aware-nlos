@@ -47,6 +47,88 @@
             border-top: 1px solid #eee; text-align: center;
             color: #777; font-size: 0.95em;
         }
+
+        /* Publications list layout */
+        .pub-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .pub-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .pub-row {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .pub-media {
+            width: 180px;
+            flex-shrink: 0;
+        }
+        .pub-thumb {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .pub-paper-title {
+            font-weight: 700;
+            color: #b91c1c; /* 전달해주신 붉은색 타이틀 */
+            margin-bottom: 5px;
+        }
+        .pub-authors {
+            font-size: 0.95em;
+            color: #555;
+        }
+        .pub-authors .me {
+            font-weight: 700;
+            color: #111;
+            text-decoration: underline;
+        }
+        .pub-venue {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #777;
+            margin: 5px 0 12px 0;
+        }
+        
+        /* Button Styles from your portfolio */
+        .pub-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .pub-links a {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: #0f4c81;
+            border: 1px solid #e5e7eb;
+            border-radius: 999px;
+            background: #f9fafb;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .pub-links a:hover {
+            background: #0f4c81;
+            color: white;
+        }
+        .pub-links a.video {
+            color: #b91c1c;
+            background: #fff5f5;
+            border-color: #fca5a5;
+        }
+        .pub-links a.video:hover {
+            background: #b91c1c;
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 600px) {
+            .pub-row { flex-direction: column; }
+            .pub-media { width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -172,9 +254,79 @@
     <div class="section">
         <h2>Results</h2>
         <p>
-            Extensive experiments in real-world outdoor scenarios demonstrate that our method significantly outperforms existing baselines. Even under challenging ego-dynamic conditions, our model successfully infers the correct reflection paths and accurately localizes hidden pedestrians without severe positional offsets.
+            <!-- Extensive experiments in real-world outdoor scenarios demonstrate that our method significantly outperforms existing baselines. Even under challenging ego-dynamic conditions, our model successfully infers the correct reflection paths and accurately localizes hidden pedestrians without severe positional offsets. -->
         </p>
-        </div>
+    </div>
+
+
+    
+    <div class="section" id="previous-works">
+        <h2>Related Publications</h2>
+        <p style="margin-bottom: 25px;">
+            This project is part of our ongoing research on <strong>Radar-based NLOS Perception</strong>. 
+            If you are interested in our previous studies and video demonstrations, please refer to the following:
+        </p>
+    
+        <ul class="pub-list">
+            <li class="pub-item">
+                <div class="pub-row">
+                    <div class="pub-media">
+                        <a href="https://www.youtube.com/watch?v=LXkU1HAPSBQ" target="_blank">
+                            <img src="figs/IROS_Graphical_abstract.png" alt="Video Demo" class="pub-thumb">
+                        </a>
+                    </div>
+                    <div class="pub-content">
+                        <div class="pub-paper-title">“mmWave Radar-Based Non-Line-of-Sight Pedestrian Localization at T-Junctions Utilizing Road Layout Extraction via Camera.”</div>
+                        <div class="pub-authors"><span class="me">Byeonggyu Park</span>, Hee-Yeun Kim, Byonghyok Choi, Hansang Cho, Byungkwan Kim, Soomok Lee, Mingu Jeon, and Seong-Woo Kim</div>
+                        <div class="pub-venue"><i>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2025</i></div>
+                        <div class="pub-links">
+                            <a href="https://ieeexplore.ieee.org/document/11246461" target="_blank">IEEE</a>
+                            <a href="https://arxiv.org/abs/2508.02348" target="_blank">arXiv</a>
+                            <a href="https://www.youtube.com/watch?v=LXkU1HAPSBQ" target="_blank" class="video">Video</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+    
+            <li class="pub-item">
+                <div class="pub-row">
+                    <div class="pub-media">
+                        <a href="https://www.youtube.com/watch?v=qIgP9w6GB9o" target="_blank">
+                            <img src="figs/IROS_2025_2.png" alt="Video Demo" class="pub-thumb">
+                        </a>
+                    </div>
+                    <div class="pub-content">
+                        <div class="pub-paper-title">“Radar-Based NLoS Pedestrian Localization for Darting-Out Scenarios Near Parked Vehicles with Camera-Assisted Point Cloud Interpretation.”</div>
+                        <div class="pub-authors">Hee-Yeun Kim, <span class="me">Byeonggyu Park</span>, Byonghyok Choi, Hansang Cho, Byungkwan Kim, Soomok Lee, Mingu Jeon, Seung-Woo Seo, and Seong-Woo Kim</div>
+                        <div class="pub-venue"><i>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2025</i></div>
+                        <div class="pub-links">
+                            <a href="https://ieeexplore.ieee.org/document/11246930" target="_blank">IEEE</a>
+                            <a href="https://arxiv.org/abs/2508.04033" target="_blank">arXiv</a>
+                            <a href="https://www.youtube.com/watch?v=qIgP9w6GB9o" target="_blank" class="video">Video</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+    
+            <li class="pub-item">
+                <div class="pub-row" style="border-bottom: none;">
+                    <div class="pub-media">
+                        <a href="https://ieeexplore.ieee.org/document/11097630" target="_blank">
+                            <img src="figs/IV_2025.png" alt="Paper Thumbnail" class="pub-thumb">
+                        </a>
+                    </div>
+                    <div class="pub-content">
+                        <div class="pub-paper-title">“Non-Line-of-Sight Multi-Target Localization in T-Junctions Using Ray Tracing of mmWave Radar.”</div>
+                        <div class="pub-authors">Mingu Jeon, <span class="me">Byeonggyu Park</span>, Hee-Yeun Kim, Yujeong Kang, Byonghyok Choi, Hansang Cho, Byungkwan Kim, Soomok Lee, Seung-Woo Seo, and Seong-Woo Kim</div>
+                        <div class="pub-venue"><i>IEEE Intelligent Vehicle Symposium (IV), 2025</i></div>
+                        <div class="pub-links">
+                            <a href="https://ieeexplore.ieee.org/document/11097630" target="_blank">IEEE</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
 
     <div class="ack">
         <p><strong>Acknowledgement</strong></p>
