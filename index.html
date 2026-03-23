@@ -267,36 +267,37 @@
                 <strong>stationary</strong> and <strong>moving</strong> ego-vehicle scenarios.
             </p>
             
-            <div class="fig-row">
-                <div class="fig-container">
-                    <img src="figs/stop_qualitative2.png" alt="Ego-static" class="result-img">
-                    <p class="fig-sub-caption"><strong>(a) Ego-static Scenario:</strong> Accurate detection while stationary</p>
+            <div class="fig-row" style="display: flex; gap: 15px; width: 100%; max-width: 900px; margin: 0 auto 20px auto;">
+                <div class="fig-container" style="flex: 1; min-width: 0;">
+                    <img src="figs/stop_qualitative2.png" alt="Ego-static" class="result-img" style="width: 100%; height: auto; border-radius: 8px;">
+                    <p class="fig-sub-caption" style="font-size: 0.9em; margin-top: 10px;"><strong>(a) Ego-static Scenario</strong></p>
                 </div>
-                <div class="fig-container">
-                    <img src="figs/move_qualitative2.png" alt="Ego-dynamic" class="result-img">
-                    <p class="fig-sub-caption"><strong>(b) Ego-dynamic Scenario:</strong> Robust tracking during motion</p>
+                <div class="fig-container" style="flex: 1; min-width: 0;">
+                    <img src="figs/move_qualitative2.png" alt="Ego-dynamic" class="result-img" style="width: 100%; height: auto; border-radius: 8px;">
+                    <p class="fig-sub-caption" style="font-size: 0.9em; margin-top: 10px;"><strong>(b) Ego-dynamic Scenario</strong></p>
                 </div>
             </div>
             
-            <p style="margin-top: 15px; font-size: 0.95em; color: #555; text-align: center;">
-                The <span style="color: #28a745; font-weight: bold;">green bounding boxes</span> represent our model's predictions, 
-                showing high alignment with the <span style="color: #dc3545; font-weight: bold;">red ground-truth</span> even under dynamic ego-motion.
+            <p style="margin-top: 20px; font-size: 0.95em; color: #444; line-height: 1.6; text-align: justify;">
+                <strong>Qualitative results:</strong> The <span style="color: #28a745; font-weight: bold;">green bounding boxes</span> represent our model's predictions, 
+                showing high alignment with the <span style="color: #dc3545; font-weight: bold;">red ground-truth</span> even under dynamic ego-motion. 
+                These results illustrate the proposed reflection-aware NLOS localization framework's effectiveness under both ego-static and ego-dynamic settings.
             </p>
         </div>
     
         <div class="result-item">
-            <h3 style="margin-bottom: 20px;">Step-by-Step Reasoning Pipeline</h3>
-            <p style="margin-bottom: 20px;">
-                To resolve the inherent ambiguity of radar signals, our model processes environmental cues through a structured pipeline. 
-                From initial segmentation to final localization, each stage ensures the reconstructed paths are physically consistent with the surrounding geometry.
-            </p>
+            <h3 style="margin-bottom: 20px;">Inside the Reflection-Aware Pipeline</h3>
             
-            <div class="fig-container">
-                <img src="figs/qualitative7.png" alt="Pipeline process" class="result-img" style="width: 100%; border: 1px solid #eee;">
-                <p class="fig-sub-caption" style="margin-top: 15px;">
-                    <strong>Qualitative Analysis:</strong> Intermediate stages including point segmentation, reflective surface estimation, and physics-guided ray tracing.
-                </p>
+            <div class="fig-container" style="width: 100%; margin-bottom: 20px;">
+                <img src="figs/qualitative7.png" alt="Pipeline process" class="result-img" style="width: 100%; height: auto; border: 1px solid #eee; border-radius: 8px;">
             </div>
+    
+            <p style="font-size: 0.95em; color: #444; line-height: 1.6; text-align: justify;">
+                The visualization above shows the intermediate stages of our pipeline: <strong>point segmentation</strong>, 
+                <strong>reflective surface estimation</strong>, <strong>ray tracing</strong>, and <strong>final localization</strong>. 
+                The final column demonstrates the high precision of our predicted pedestrian locations compared to the ground-truth 
+                by reconstructing the full physics-based reflection paths.
+            </p>
         </div>
     </div>
 
