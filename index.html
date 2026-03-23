@@ -82,7 +82,7 @@
         <div class="section">
             <div class="abstract-box">
                 <p>
-                    In complex urban driving environments, <strong>critical safety hazards often arise from Non-Line-of-Sight (NLOS) regions—areas</strong> obscured by buildings or walls. These occlusions significantly increase the risk of pedestrian collisions, as conventional sensors cannot see around corners. To address this, we propose a <strong>practical framework for NLOS pedestrian localization</strong> that robustly operates in real-world ego-dynamic environments with a moving ego-vehicle.
+                    In complex urban driving environments, <strong>critical safety hazards often arise from Non-Line-of-Sight (NLOS) regions</strong> obscured by buildings or walls. These occlusions significantly increase the risk of pedestrian collisions, as conventional sensors cannot see around corners. To address this, we propose a <strong>practical framework for NLOS pedestrian localization</strong> that robustly operates in real-world ego-dynamic environments with a moving ego-vehicle.
                 </p>
             </div>
         </div>
@@ -97,11 +97,46 @@
         </div>
     </div>
 
-    <div class="section">
+    <!-- <div class="section">
         <h2>Introduction</h2>
         <p>
             Detecting hidden pedestrians before they enter the line-of-sight is a critical capability for autonomous vehicles. However, existing methods often fail in real-world driving environments due to ego-motion and complex multipath interference. To tackle this, we propose a novel multimodal framework that leverages camera and radar sensors to explicitly reason about the physical reflections in the scene.
         </p>
+    </div> -->
+
+    <div class="section">
+        <h2>Introduction</h2>
+    
+        <div style="display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 280px; text-align: center;">
+                <img src="figs/path5.png" alt="Urban Scenario" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="font-size: 0.9em; color: #666; margin-top: 8px;">(a) Typical urban occlusion scenario</p>
+            </div>
+            <div style="flex: 1; min-width: 280px; text-align: center;">
+                <img src="figs/problem3.png" alt="Technical Challenge" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="font-size: 0.9em; color: #666; margin-top: 8px;">(b) Complexity of radar reflection paths</p>
+            </div>
+        </div>
+    
+        <div style="margin-bottom: 30px;">
+            <p>
+                Perceiving pedestrians in <strong>Non-Line-of-Sight (NLOS)</strong> regions is a critical yet formidable challenge for autonomous driving. Unlike direct observation, identifying hidden objects in <strong>real-world ego-dynamic environments</strong> involves significant technical hurdles:
+            </p>
+            <ul style="line-height: 1.8; color: #444;">
+                <li><strong>Geometric Distortion:</strong> Radar signals undergo multi-bounce reflections off urban structures, causing the perceived object position to be spatially shifted from its actual location.</li>
+                <li><strong>Ego-Dynamic Noise:</strong> Continuous motion of the ego-vehicle introduces frame-by-frame observational variances and increases environmental clutter, making stable detection difficult.</li>
+                <li><strong>Contextual Ambiguity:</strong> Without direct visual lines, the system must rely on sparse radar returns and prior structural knowledge to reconstruct physically valid propagation paths.</li>
+            </ul>
+        </div>
+    
+        <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-top: 4px solid #333;">
+            <h3 style="margin-top: 0; color: #222;">Key Contributions</h3>
+            <ul style="margin-bottom: 0; line-height: 1.8;">
+                <li><strong>Practical NLOS Framework:</strong> We propose a robust learning framework that enables precise NLOS pedestrian localization specifically designed for moving ego-vehicles.</li>
+                <li><strong>Reflection-aware Learning:</strong> By integrating multimodal feature fusion with <strong>physics-guided ray tracing</strong>, our method effectively recovers distorted radar propagation trajectories.</li>
+                <li><strong>Real-world Validation:</strong> We demonstrate state-of-the-art performance in complex outdoor intersections, achieving a localization accuracy of <strong>1.23m</strong> under dynamic driving conditions.</li>
+            </ul>
+        </div>
     </div>
 
     <div class="section">
@@ -118,7 +153,7 @@
     
         <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
             <li style="margin-bottom: 15px;">
-                <strong>(a) Input:</strong> Multi-modal data integration using a temporal stack of radar point clouds $\{R_{t-\tau}\}_{\tau=0}^{K-1}$ and a synchronized front-view image $I$.
+                <strong>(a) Input:</strong> Multi-modal data integration using a temporal stack of radar point clouds and a synchronized front-view image.
             </li>
             <li style="margin-bottom: 15px;">
                 <strong>(b) Reflection-aware Representation Learning:</strong> Radar and BEV-aligned visual features are fused via cross-attention. This stage predicts reflection-type labels for radar points and generates a reflective surface heatmap in BEV space.
