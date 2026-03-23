@@ -196,34 +196,40 @@
         <h2>Introduction</h2>
     
         <div style="display: flex; flex-direction: column; gap: 30px; margin-bottom: 35px;">
-                <div style="width: 100%; text-align: center;">
-                    <img src="figs/problem3.png" alt="Technical Challenge" 
-                         style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                    <p style="font-size: 1em; color: #555; margin-top: 12px; font-weight: 500;">
-                        Typical urban occlusion scenario with hidden pedestrians
-                    </p>
-                </div>
-            
-                <div style="width: 100%; text-align: center;">
-                    <img src="figs/path5.png" alt="Urban Scenario" 
-                         style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                    <p style="font-size: 1em; color: #555; margin-top: 12px; font-weight: 500;">
-                        Complexity of radar multi-bounce reflection paths in ego-dynamic environments
-                    </p>
-                </div>
+            <div style="width: 100%; text-align: center;">
+                <img src="figs/problem3.png" alt="NLOS Scenario" 
+                     style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <p style="font-size: 0.95em; color: #555; margin-top: 15px; font-weight: 500; text-align: justify; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                    <strong>Fig. 1: Illustration of an NLOS pedestrian scenario from the ego-vehicle perspective.</strong> 
+                    (a) While driving through narrow urban alleys, regions between buildings fall outside the Line-of-Sight (LOS), making direct detection difficult. 
+                    (b) By leveraging reflective wave propagation, indirect spatial evidence can be obtained even when the target is occluded. 
+                    (c) Based on reflection-aware reasoning, the position of the NLOS object can be inferred despite the absence of direct visibility.
+                </p>
             </div>
+    
+            <div style="width: 100%; text-align: center;">
+                <img src="figs/path5.png" alt="Radar PCD Challenges" 
+                     style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <p style="font-size: 0.95em; color: #555; margin-top: 15px; font-weight: 500; text-align: justify; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                    <strong>Fig. 2: Reflection path diversity and challenges in mmWave radar observations.</strong> 
+                    (a) Radar Point Cloud Data (PCD) in BEV appears sparse and noisy, making informative observations difficult to identify. 
+                    (b–d) Geometric strategies for object localization vary depending on the reflection order (1st, 2nd, and 3rd bounce). 
+                    (e) Structurally inconsistent noise and ego-dynamic variances further complicate the interpretation of multi-bounce reflection paths.
+                </p>
+            </div>
+        </div>
     
         <div style="margin-bottom: 30px; line-height: 1.8; color: #333; text-align: justify;">
             <p>
                 Perceiving pedestrians in <strong>Non-Line-of-Sight (NLOS)</strong> regions is a critical yet formidable challenge for autonomous driving. Unlike direct observation, identifying hidden objects in <strong>real-world ego-dynamic environments</strong> involves significant technical hurdles. 
             </p>
             <p>
-                The primary difficulty stems from <strong>geometric distortion</strong>, where radar signals undergo multi-bounce reflections off urban structures, causing the perceived object position to be spatially shifted from its actual location. This issue is further compounded by <strong>ego-dynamic noise</strong>, as the continuous motion of the vehicle introduces frame-by-frame observational variances and environmental clutter. Ultimately, the lack of direct visual lines leads to <strong>contextual ambiguity</strong>, forcing the system to rely on sparse radar returns and prior structural knowledge to reconstruct physically valid propagation paths.
+                The primary difficulty stems from <strong>geometric distortion</strong>, where radar signals undergo multi-bounce reflections, causing the perceived object position to be spatially shifted. This is further compounded by <strong>ego-dynamic noise</strong>, where vehicle motion introduces frame-by-frame variances. Ultimately, the system must rely on sparse radar returns and prior structural knowledge to reconstruct physically valid propagation paths.
             </p>
         </div>
     
         <div class="abstract-box">
-            <h3">Key Contributions</h3>
+            <h3>Key Contributions</h3>
             <ul>
                 <li><strong>Practical NLOS Framework:</strong> We propose a robust learning framework that enables precise NLOS pedestrian localization specifically designed for moving ego-vehicles.</li>
                 <li><strong>Reflection-aware Learning:</strong> By integrating multimodal feature fusion with <strong>physics-guided ray tracing</strong>, our method effectively recovers distorted radar propagation trajectories.</li>
