@@ -67,11 +67,17 @@
     </div>
 
     <div class="section">
-        <video width="100%" height="auto" autoplay loop muted playsinline controls 
-               style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: block; margin: 0 auto; background-color: #000;">
-            <source src="figs/results.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div style="width: 100%; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); line-height: 0;">
+            <video autoplay loop muted playsinline controls 
+                   style="width: 100%; 
+                          height: auto; 
+                          display: block; 
+                          margin: -3px 0; /* 위아래로 3px씩 밀어 올리고 내림 */
+                          transform: scale(1.01); /* 미세한 빈틈 방지용 (필요시 조절) */">
+                <source src="figs/results.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     
         <div style="background: #f8f9fa; padding: 25px 30px; border-radius: 12px; border-left: 6px solid #333; margin-top: 25px; line-height: 1.6;">
             <p style="margin-bottom: 0; color: #333; font-weight: 500; text-align: left; font-size: 1.05em;">
