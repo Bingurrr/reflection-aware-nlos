@@ -10,48 +10,42 @@
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 900px; /* PC에서 너무 넓어지지 않게 고정 */
+            max-width: 850px; /* 읽기 편하도록 폭을 조금 줄였습니다 */
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
         h1, h2, h3 { color: #111; }
-        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; }
-        p { text-align: justify; }
+        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 50px; margin-bottom: 20px; }
+        p { text-align: justify; margin-bottom: 20px; }
         
         /* 헤더 (제목 및 저자) 영역 */
-        .header { text-align: center; margin-bottom: 40px; }
-        .title { font-size: 2.2em; font-weight: bold; margin-bottom: 20px; line-height: 1.2; }
-        .authors { font-size: 1.2em; margin-bottom: 10px; }
-        .affiliations { font-size: 1.1em; color: #666; margin-bottom: 20px; }
+        .header { text-align: center; margin-bottom: 50px; }
+        .title { font-size: 2.4em; font-weight: bold; margin-bottom: 25px; line-height: 1.2; letter-spacing: -0.5px; }
+        .authors { font-size: 1.25em; margin-bottom: 10px; }
+        .affiliations { font-size: 1.1em; color: #666; margin-bottom: 25px; }
         .links a {
             display: inline-block; background-color: #333; color: #fff;
-            padding: 8px 16px; margin: 0 5px; border-radius: 20px;
+            padding: 10px 20px; margin: 0 5px; border-radius: 25px;
             text-decoration: none; font-weight: bold; font-size: 0.9em;
+            transition: background 0.3s;
         }
         .links a:hover { background-color: #555; }
 
-        /* 이미지 및 비디오 스타일 */
-        img, video {
-            max-width: 100%; height: auto; display: block;
-            margin: 20px auto; border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .caption { text-align: center; font-style: italic; color: #666; font-size: 0.9em; margin-top: -10px; }
-
         /* 섹션 공통 스타일 */
-        .section { margin-bottom: 40px; }
+        .section { margin-bottom: 50px; }
         
         /* 초록 박스 스타일 */
         .abstract-box {
-            background: #f8f9fa; padding: 20px 25px;
-            border-radius: 8px; border-left: 5px solid #333;
+            background: #f8f9fa; padding: 25px 30px;
+            border-radius: 12px; border-left: 6px solid #333;
+            font-size: 1.05em;
         }
         
         /* 사사(Acknowledge) 스타일 */
         .ack {
-            margin-top: 60px; padding-top: 20px;
-            border-top: 1px solid #ddd; text-align: center;
-            color: #555; font-size: 0.95em;
+            margin-top: 80px; padding-top: 30px;
+            border-top: 1px solid #eee; text-align: center;
+            color: #777; font-size: 0.95em;
         }
     </style>
 </head>
@@ -68,13 +62,8 @@
         
         <div class="links">
             <a href="#">📄 Paper (Coming Soon)</a>
-            <a href="https://github.com/[본인아이디]/Reflection-Aware-NLOS">💻 Code</a>
+            <a href="https://github.com/bingurrr/reflection-aware-nlos">💻 Code</a>
         </div>
-    </div>
-
-    <div class="section">
-        <img src="assets/teaser_result.gif" alt="NLOS Teaser Result">
-        <div class="caption">Robust NLOS pedestrian localization using physics-guided ray tracing in real-world driving scenarios.</div>
     </div>
 
     <div class="section">
@@ -93,22 +82,20 @@
 
     <div class="section">
         <h2>Methodology</h2>
-        <img src="assets/architecture.png" alt="Method Architecture">
         <p>
             Our reflection-aware framework explicitly models the physics of radar multipath propagation. First, we fuse visual features from the camera with geometric features from the radar to estimate the probability of reflective surfaces in the Bird's-Eye-View (BEV). Then, a physics-guided ray tracing module reconstructs the actual signal paths, effectively overcoming geometric ambiguities caused by the corner reflectors.
         </p>
-    </div>
+        </div>
 
     <div class="section">
         <h2>Results</h2>
-        <img src="assets/qualitative_results.png" alt="Qualitative Results">
         <p>
             Extensive experiments in real-world outdoor scenarios demonstrate that our method significantly outperforms existing baselines. Even under challenging ego-dynamic conditions, our model successfully infers the correct reflection paths and accurately localizes hidden pedestrians without severe positional offsets.
         </p>
-    </div>
+        </div>
 
     <div class="ack">
-        <p><b>Acknowledgement</b></p>
+        <p><strong>Acknowledgement</strong></p>
         <p>This work was supported by Seoul National University and Samsung.</p>
     </div>
 
