@@ -80,10 +80,9 @@
         </div>
     
         <div class="section">
-            <h2>Abstract</h2>  
             <div class="abstract-box">
                 <p>
-                    In complex urban driving environments, critical safety hazards often arise from <strong>Non-Line-of-Sight (NLOS)</strong> regions—areas obscured by buildings or walls. These occlusions significantly increase the risk of pedestrian collisions, as conventional sensors cannot see around corners. To address this, we propose a <strong>practical framework for NLOS pedestrian localization</strong> that robustly operates in real-world ego-dynamic environments with a moving ego-vehicle.
+                    In complex urban driving environments, <strong>critical safety hazards often arise from Non-Line-of-Sight (NLOS) regions—areas</strong> obscured by buildings or walls. These occlusions significantly increase the risk of pedestrian collisions, as conventional sensors cannot see around corners. To address this, we propose a <strong>practical framework for NLOS pedestrian localization</strong> that robustly operates in real-world ego-dynamic environments with a moving ego-vehicle.
                 </p>
             </div>
         </div>
@@ -107,10 +106,28 @@
 
     <div class="section">
         <h2>Methodology</h2>
-        <p>
-            Our reflection-aware framework explicitly models the physics of radar multipath propagation. First, we fuse visual features from the camera with geometric features from the radar to estimate the probability of reflective surfaces in the Bird's-Eye-View (BEV). Then, a physics-guided ray tracing module reconstructs the actual signal paths, effectively overcoming geometric ambiguities caused by the corner reflectors.
-        </p>
+        
+        <div style="text-align: center; margin-bottom: 30px;">
+            <img src="figs/Overall9.png" alt="Overall Framework" style="width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <p style="font-style: italic; color: #666; margin-top: 10px;">Overall framework of the proposed reflection-aware NLOS localization method.</p>
         </div>
+    
+        <p>
+            We develop a learning-based framework that performs feature-level fusion between <strong>front-view camera images</strong> (structural/semantic cues) and <strong>radar point clouds</strong> (range/reflection characteristics). Our model interprets complex reflection paths through three key stages:
+        </p>
+    
+        <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
+            <li style="margin-bottom: 15px;">
+                <strong>(a) Input:</strong> Multi-modal data integration using a temporal stack of radar point clouds $\{R_{t-\tau}\}_{\tau=0}^{K-1}$ and a synchronized front-view image $I$.
+            </li>
+            <li style="margin-bottom: 15px;">
+                <strong>(b) Reflection-aware Representation Learning:</strong> Radar and BEV-aligned visual features are fused via cross-attention. This stage predicts reflection-type labels for radar points and generates a reflective surface heatmap in BEV space.
+            </li>
+            <li style="margin-bottom: 15px;">
+                <strong>(c) Physics-guided Ray Tracing:</strong> Using the learned features, we form reflection-consistent clusters and identify candidate reflectors. The final NLOS pedestrian position is recovered through geometric mirroring and physics-based path reconstruction.
+            </li>
+        </ul>
+    </div>
 
     <div class="section">
         <h2>Results</h2>
