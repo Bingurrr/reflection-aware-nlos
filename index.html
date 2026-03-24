@@ -256,6 +256,60 @@
         </ul>
     </div>
 
+    <div class="section" id="dataset">
+        <h2>Dataset</h2>
+    
+        <p>
+            We evaluate our method on a real-world multimodal dataset collected in a dedicated outdoor testbed
+            designed to emulate narrow urban roads with T-junctions and strong occlusion regions.
+            The environment spans approximately <strong>53.5 m × 33.5 m</strong> with road widths of about <strong>5.5 m</strong>,
+            enabling realistic <strong>Non-Line-of-Sight (NLOS)</strong> pedestrian scenarios.
+        </p>
+    
+        <div style="text-align: center; margin: 30px 0;">
+            <img src="figs/total_env.png" alt="Dataset environment and sensor platform"
+                 style="width: 100%; max-width: 1000px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <p style="font-style: italic; color: #666; margin-top: 10px;">
+                Data acquisition vehicle and outdoor testbed environment used for multimodal dataset collection.
+            </p>
+        </div>
+    
+        <div class="abstract-box" style="margin: 30px 0;">
+            <h3 style="margin-top: 0;">Dataset Summary</h3>
+            <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                <li><strong>120 scenarios</strong> in total</li>
+                <li><strong>67 ego-dynamic</strong> scenarios and <strong>53 ego-static</strong> scenarios</li>
+                <li><strong>12,539 frames</strong> and <strong>2,853,228 radar points</strong></li>
+                <li><strong>1–3 pedestrians</strong> per scenario</li>
+                <li>Synchronized <strong>radar, camera, LiDAR, and wheel encoder</strong> measurements</li>
+            </ul>
+        </div>
+    
+        <p>
+            The ego-vehicle was equipped with a <strong>77 GHz automotive mmWave radar</strong>, a
+            <strong>front-view fisheye camera</strong>, a <strong>128-channel LiDAR</strong>, and wheel encoders,
+            all synchronized at <strong>10 Hz</strong>. The dataset covers both <strong>ego-static</strong> cases,
+            where the vehicle is stopped, and <strong>ego-dynamic</strong> cases, where the vehicle moves through
+            narrow urban roads under realistic low-speed driving conditions.
+        </p>
+    
+        <div style="text-align: center; margin: 30px 0;">
+            <img src="figs/total_graph.png" alt="Dataset distribution"
+                 style="width: 100%; max-width: 1000px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <p style="font-style: italic; color: #666; margin-top: 10px;">
+                Distribution of ego-vehicle speed in ego-dynamic scenarios and the number of pedestrians in the dataset.
+            </p>
+        </div>
+    
+        <p>
+            In ego-dynamic scenarios, the vehicle speed was measured using wheel encoders.
+            Considering only dynamic frames with speeds of at least <strong>5 km/h</strong>, the average speed is
+            <strong>10.78 km/h</strong> with a standard deviation of <strong>3.06 km/h</strong>, and the maximum speed reaches
+            <strong>22.0 km/h</strong>. This setup allows us to evaluate NLOS pedestrian localization under practical
+            outdoor driving conditions with realistic motion and occlusion patterns.
+        </p>
+    </div>
+    
     <div class="section" id="results">
         <h2>Experimental Results</h2>
     
@@ -269,11 +323,11 @@
             <div class="fig-row" style="display: flex; gap: 15px; width: 100%; max-width: 900px; margin: 0 auto 20px auto;">
                 <div class="fig-container" style="flex: 1; min-width: 0;">
                     <img src="figs/stop_qualitative2.png" alt="Ego-static" class="result-img" style="width: 100%; height: auto; border-radius: 8px;">
-                    <p class="fig-sub-caption" style="font-size: 0.9em; margin-top: 10px;"><strong>(a) Ego-static Scenario</strong></p>
+                    <p class="fig-sub-caption" style="font-size: 0.9em; margin-top: 10px;"><strong>Ego-static Scenario</strong></p>
                 </div>
                 <div class="fig-container" style="flex: 1; min-width: 0;">
                     <img src="figs/move_qualitative2.png" alt="Ego-dynamic" class="result-img" style="width: 100%; height: auto; border-radius: 8px;">
-                    <p class="fig-sub-caption" style="font-size: 0.9em; margin-top: 10px;"><strong>(b) Ego-dynamic Scenario</strong></p>
+                    <p class="fig-sub-caption" style="font-size: 0.9em; margin-top: 10px;"><strong>Ego-dynamic Scenario</strong></p>
                 </div>
             </div>
             
