@@ -5,104 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reflection-Aware Reasoning for NLOS Pedestrian Localization</title>
     <style>
-        /* 기본 웹페이지 스타일 설정 */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 850px; /* 읽기 편하도록 폭을 조금 줄였습니다 */
+            max-width: 850px;
             margin: 0 auto;
             padding: 60px 20px;
         }
+
         h1, h2, h3 { color: #111; }
-        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 50px; margin-bottom: 20px; }
-        p { text-align: justify; margin-bottom: 20px; }
-        
-        /* 헤더 (제목 및 저자) 영역 */
-        .header { text-align: center; margin-bottom: 50px; }
-        .title { font-size: 2.4em; font-weight: bold; margin-bottom: 25px; line-height: 1.2; letter-spacing: -0.5px; }
-        .authors { font-size: 1.25em; margin-bottom: 10px; }
-        .affiliations { font-size: 1.1em; color: #666; margin-bottom: 25px; }
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .title {
+            font-size: 2.4em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .authors {
+            font-size: 1.25em;
+            margin-bottom: 10px;
+        }
+
+        .author-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease, text-decoration-color 0.2s ease;
+        }
+
+        .author-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .affiliations {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
         .links a {
-            display: inline-block; background-color: #333; color: #fff;
-            padding: 10px 20px; margin: 0 5px; border-radius: 25px;
-            text-decoration: none; font-weight: bold; font-size: 0.9em;
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
             transition: background 0.3s;
         }
-        .links a:hover { background-color: #555; }
 
-        /* 섹션 공통 스타일 */
-        .section { margin-bottom: 50px; }
-        
-        /* 초록 박스 스타일 */
+        .links a:hover {
+            background-color: #555;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
         .abstract-box {
-            background: #f8f9fa; padding: 25px 30px;
-            /* border-radius: 12px; border-left: 6px solid #333; */
+            background: #f8f9fa;
+            padding: 25px 30px;
             font-size: 1.05em;
         }
-        
-        /* 사사(Acknowledge) 스타일 */
+
         .ack {
-            margin-top: 80px; padding-top: 30px;
-            border-top: 1px solid #eee; text-align: center;
-            color: #777; font-size: 0.95em;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #777;
+            font-size: 0.95em;
         }
 
-        /* Publications list layout */
+        .ack p {
+            text-align: center;
+        }
+
         .pub-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
+
         .pub-item {
             padding: 20px 0;
             border-bottom: 1px solid #eee;
         }
+
         .pub-row {
             display: flex;
             gap: 20px;
             align-items: flex-start;
         }
-        .pub-media{
-          width:190px;
-          height:130px;
-          flex-shrink:0;
-          display:flex;
-          align-items:center;
-          justify-content:center;
+
+        .pub-media {
+            width: 190px;
+            height: 130px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 10px;
         }
-        .pub-thumb{
-            width:100%;
-            height:auto;
-            max-width:520px;
-          }
+
+        .pub-thumb-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .pub-thumb {
+            width: 100%;
+            height: auto;
+            max-width: 520px;
+            transition: transform 0.28s ease, box-shadow 0.28s ease;
+            transform-origin: center center;
+        }
+
+        .pub-thumb-link:hover .pub-thumb {
+            transform: scale(1.06);
+        }
+
         .pub-paper-title {
             font-weight: 700;
-            /* color: #b91c1c; /* 전달해주신 붉은색 타이틀 */ */
             margin-bottom: 5px;
         }
+
         .pub-authors {
             font-size: 0.95em;
             color: #555;
         }
+
         .pub-authors .me {
             font-weight: 700;
             color: #111;
             text-decoration: underline;
         }
+
         .pub-venue {
             font-size: 0.9em;
             font-style: italic;
             color: #777;
             margin: 5px 0 12px 0;
         }
-        
-        /* Button Styles from your portfolio */
+
         .pub-links {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
         }
+
         .pub-links a {
             display: inline-block;
             padding: 4px 12px;
@@ -115,23 +192,30 @@
             text-decoration: none;
             transition: all 0.2s;
         }
+
         .pub-links a:hover {
             background: #0f4c81;
             color: white;
         }
+
         .pub-links a.video {
             color: #b91c1c;
             background: #fff5f5;
             border-color: #fca5a5;
         }
+
         .pub-links a.video:hover {
             background: #b91c1c;
         }
-        
-        /* Mobile responsive */
+
         @media (max-width: 600px) {
-            .pub-row { flex-direction: column; }
-            .pub-media { width: 100%; }
+            .pub-row {
+                flex-direction: column;
+            }
+            .pub-media {
+                width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -140,14 +224,14 @@
     <div class="header">
         <div class="title">Reflection-Aware Reasoning for<br>Non-Line-of-Sight Pedestrian Localization</div>
         <div class="authors" style="text-align: center; width: 100%; margin: 20px 0;">
-            <a href="https://bingurrr.github.io/" target="_blank" style="text-decoration: none; color: inherit;">Byeonggyu Park</a><sup>1</sup>, 
+            <a href="https://bingurrr.github.io/" target="_blank" class="author-link" title="Visit Byeonggyu Park's homepage">Byeonggyu Park</a><sup>1</sup>, 
             Mingu Jeon<sup>2</sup>, and 
-            <a href="https://arisnu.squarespace.com/director" target="_blank" style="text-decoration: none; color: inherit;">Seong-Woo Kim</a><sup>1</sup>
+            <a href="https://arisnu.squarespace.com/director" target="_blank" class="author-link" title="Visit Seong-Woo Kim's homepage">Seong-Woo Kim</a><sup>1</sup>
         </div>
         <div class="affiliations">
             <sup>1</sup>Seoul National University &nbsp;&nbsp;&nbsp;&nbsp; <sup>2</sup>Pusan National University
         </div>
-        
+
         <div class="links">
             <a href="#">📄 Paper (Coming Soon)</a>
             <a href="https://github.com/bingurrr/reflection-aware-nlos">💻 Code</a>
@@ -156,17 +240,13 @@
 
     <div class="section">
         <div style="width: 100%; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); line-height: 0;">
-            <video autoplay loop muted playsinline controls 
-                   style="width: 100%; 
-                          height: auto; 
-                          display: block; 
-                          margin: -3px 0; /* 위아래로 3px씩 밀어 올리고 내림 */
-                          transform: scale(1.01); /* 미세한 빈틈 방지용 (필요시 조절) */">
+            <video autoplay loop muted playsinline controls
+                   style="width: 100%; height: auto; display: block; margin: -3px 0; transform: scale(1.01);">
                 <source src="figs/results.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
-    
+
         <div class="section">
             <div class="abstract-box">
                 <p>
@@ -175,7 +255,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="section">
         <h2>Abstract</h2>
         <div class="abstract-box">
@@ -185,19 +265,12 @@
         </div>
     </div>
 
-    <!-- <div class="section">
-        <h2>Introduction</h2>
-        <p>
-            Detecting hidden pedestrians before they enter the line-of-sight is a critical capability for autonomous vehicles. However, existing methods often fail in real-world driving environments due to ego-motion and complex multipath interference. To tackle this, we propose a novel multimodal framework that leverages camera and radar sensors to explicitly reason about the physical reflections in the scene.
-        </p>
-    </div> -->
-
     <div class="section">
         <h2>Introduction</h2>
-    
+
         <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
             <div style="width: 100%; text-align: center;">
-                <img src="figs/problem3.png" alt="NLOS Scenario Illustration" 
+                <img src="figs/problem3.png" alt="NLOS Scenario Illustration"
                      style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                 <p style="font-style: italic; color: #666; margin-top: 10px;">Illustration of NLOS pedestrian detection leveraging reflective wave propagation in urban alleys.</p>
             </div>
@@ -207,10 +280,10 @@
                 </p>
             </div>
         </div>
-    
+
         <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
             <div style="width: 100%; text-align: center;">
-                <img src="figs/path5.png" alt="Radar PCD Challenges" 
+                <img src="figs/path5.png" alt="Radar PCD Challenges"
                      style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                 <p style="font-style: italic; color: #666; margin-top: 10px;">Technical challenges of radar PCD in ego-dynamic environments with multi-bounce reflections.</p>
             </div>
@@ -220,12 +293,12 @@
                 </p>
             </div>
         </div>
-    
+
         <div class="abstract-box">
             <h3>Key Contributions</h3>
             <ul>
                 <li><strong>Practical NLOS Framework:</strong> We propose a robust learning framework that enables precise NLOS pedestrian localization specifically designed for moving ego-vehicles.</li>
-                <li><strong>Reflection-aware Learning:</strong> By integrating multimodal feature fusion with <strong>physics-guided ray tracing</strong>, our method effectively recovers distorted radar propagation trajectories.</li>
+                <li><strong>Reflection-aware Reasoning:</strong> By integrating multimodal feature fusion with <strong>physics-guided ray tracing</strong>, our method effectively recovers distorted radar propagation trajectories.</li>
                 <li><strong>Real-world Validation:</strong> We demonstrate state-of-the-art performance in complex outdoor intersections, achieving a localization accuracy of <strong>1.23m</strong> under dynamic driving conditions.</li>
             </ul>
         </div>
@@ -233,16 +306,16 @@
 
     <div class="section">
         <h2>Methodology</h2>
-        
+
         <div style="text-align: center; margin-bottom: 30px;">
             <img src="figs/Overall9.png" alt="Overall Framework" style="width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
             <p style="font-style: italic; color: #666; margin-top: 10px;">Overall framework of the proposed reflection-aware NLOS localization method.</p>
         </div>
-    
+
         <p>
             We develop a learning-based framework that performs feature-level fusion between <strong>front-view camera images</strong> (structural/semantic cues) and <strong>radar point clouds</strong> (range/reflection characteristics). Our model interprets complex reflection paths through key stages:
         </p>
-    
+
         <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
             <li style="margin-bottom: 15px;">
                 <strong>(a) Input:</strong> Multi-modal data integration using a temporal stack of radar point clouds and a synchronized front-view image.
@@ -258,14 +331,11 @@
 
     <div class="section" id="dataset">
         <h2>Dataset</h2>
-    
+
         <p>
-            We evaluate our method on a real-world multimodal dataset collected in a dedicated outdoor testbed
-            designed to emulate narrow urban roads with T-junctions and strong occlusion regions.
-            The environment spans approximately <strong>53.5 m × 33.5 m</strong> with road widths of about <strong>5.5 m</strong>,
-            enabling realistic <strong>Non-Line-of-Sight (NLOS)</strong> pedestrian scenarios.
+            We evaluate our method on a real-world multimodal dataset collected in a dedicated outdoor testbed designed to emulate narrow urban roads with T-junctions and strong occlusion regions. The environment spans approximately <strong>53.5 m × 33.5 m</strong> with road widths of about <strong>5.5 m</strong>, enabling realistic <strong>Non-Line-of-Sight (NLOS)</strong> pedestrian scenarios.
         </p>
-    
+
         <div style="text-align: center; margin: 30px 0;">
             <img src="figs/total_env.png" alt="Dataset environment and sensor platform"
                  style="width: 100%; max-width: 1000px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
@@ -273,7 +343,7 @@
                 Data acquisition vehicle and outdoor testbed environment used for multimodal dataset collection.
             </p>
         </div>
-    
+
         <div class="abstract-box" style="margin: 30px 0;">
             <h3 style="margin-top: 0;">Dataset Summary</h3>
             <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
@@ -284,7 +354,7 @@
                 <li>Synchronized <strong>radar, camera, LiDAR, and wheel encoder</strong> measurements</li>
             </ul>
         </div>
-    
+
         <p>
             The ego-vehicle was equipped with a <strong>77 GHz automotive mmWave radar</strong>, a
             <strong>front-view fisheye camera</strong>, a <strong>128-channel LiDAR</strong>, and wheel encoders,
@@ -292,7 +362,7 @@
             where the vehicle is stopped, and <strong>ego-dynamic</strong> cases, where the vehicle moves through
             narrow urban roads under realistic low-speed driving conditions.
         </p>
-    
+
         <div style="text-align: center; margin: 30px 0;">
             <img src="figs/total_graph.png" alt="Dataset distribution"
                  style="width: 100%; max-width: 1000px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
@@ -300,26 +370,22 @@
                 Distribution of ego-vehicle speed in ego-dynamic scenarios and the number of pedestrians in the dataset.
             </p>
         </div>
-    
+
         <p>
-            In ego-dynamic scenarios, the vehicle speed was measured using wheel encoders.
-            Considering only dynamic frames with speeds of at least <strong>5 km/h</strong>, the average speed is
-            <strong>10.78 km/h</strong> with a standard deviation of <strong>3.06 km/h</strong>, and the maximum speed reaches
-            <strong>22.0 km/h</strong>. This setup allows us to evaluate NLOS pedestrian localization under practical
-            outdoor driving conditions with realistic motion and occlusion patterns.
+            In ego-dynamic scenarios, the vehicle speed was measured using wheel encoders. Considering only dynamic frames with speeds of at least <strong>5 km/h</strong>, the average speed is <strong>10.78 km/h</strong> with a standard deviation of <strong>3.06 km/h</strong>, and the maximum speed reaches <strong>22.0 km/h</strong>. This setup allows us to evaluate NLOS pedestrian localization under practical outdoor driving conditions with realistic motion and occlusion patterns.
         </p>
     </div>
-    
+
     <div class="section" id="results">
         <h2>Experimental Results</h2>
-    
+
         <div class="result-item" style="margin-bottom: 60px;">
             <p style="font-size: 1.1em; line-height: 1.6; margin-bottom: 25px;">
                 Our framework demonstrates reliable performance in diverse urban driving conditions. 
                 By effectively reasoning through complex multipath reflections, the system accurately localizes hidden pedestrians in both 
                 <strong>stationary</strong> and <strong>moving</strong> ego-vehicle scenarios.
             </p>
-            
+
             <div class="fig-row" style="display: flex; gap: 15px; width: 100%; max-width: 900px; margin: 0 auto 20px auto;">
                 <div class="fig-container" style="flex: 1; min-width: 0;">
                     <img src="figs/stop_qualitative2.png" alt="Ego-static" class="result-img" style="width: 100%; height: auto; border-radius: 8px;">
@@ -330,21 +396,21 @@
                     <p class="fig-sub-caption" style="font-size: 0.9em; margin-top: 10px;"><strong>Ego-dynamic Scenario</strong></p>
                 </div>
             </div>
-            
+
             <p style="margin-top: 20px; font-size: 0.95em; color: #444; line-height: 1.6; text-align: justify;">
                 <strong>Qualitative results:</strong> The <span style="color: #28a745; font-weight: bold;">green bounding boxes</span> represent our model's predictions, 
                 showing high alignment with the <span style="color: #dc3545; font-weight: bold;">red ground-truth</span> even under dynamic ego-motion. 
                 These results illustrate the proposed reflection-aware NLOS localization framework's effectiveness under both ego-static and ego-dynamic settings.
             </p>
         </div>
-    
+
         <div class="result-item">
             <h3 style="margin-bottom: 20px;">Inside the Reflection-Aware Pipeline</h3>
-            
+
             <div class="fig-container" style="width: 100%; margin-bottom: 20px;">
                 <img src="figs/qualitative7.png" alt="Pipeline process" class="result-img" style="width: 100%; height: auto; border: 1px solid #eee; border-radius: 8px;">
             </div>
-    
+
             <p style="font-size: 0.95em; color: #444; line-height: 1.6; text-align: justify;">
                 The visualization above shows the intermediate stages of our pipeline: <strong>point segmentation</strong>, 
                 <strong>reflective surface estimation</strong>, <strong>ray tracing</strong>, and <strong>final localization</strong>. 
@@ -354,8 +420,6 @@
         </div>
     </div>
 
-
-    
     <div class="section" id="previous-works">
         <h2>Our Research Evolution in NLOS Perception</h2>
         <p style="margin-bottom: 25px; color: #555;">
@@ -366,13 +430,13 @@
             <li class="pub-item">
                 <div class="pub-row">
                     <div class="pub-media">
-                        <a href="https://www.youtube.com/watch?v=LXkU1HAPSBQ" target="_blank">
+                        <a href="https://www.youtube.com/watch?v=LXkU1HAPSBQ" target="_blank" class="pub-thumb-link">
                             <img src="imgs/IROS_Graphical_abstract.png" alt="Video Demo" class="pub-thumb">
                         </a>
                     </div>
                     <div class="pub-content">
-                        <div class="pub-paper-title">“mmWave Radar-Based Non-Line-of-Sight Pedestrian Localization at T-Junctions Utilizing Road Layout Extraction via Camera [Ego-static Scenario]” </div>
-                        <div class="pub-authors"> Byeonggyu Park, Hee-Yeun Kim, Byonghyok Choi, Hansang Cho, Byungkwan Kim, Soomok Lee, Mingu Jeon, and Seong-Woo Kim</div>
+                        <div class="pub-paper-title">“mmWave Radar-Based Non-Line-of-Sight Pedestrian Localization at T-Junctions Utilizing Road Layout Extraction via Camera [Ego-static Scenario]”</div>
+                        <div class="pub-authors">Byeonggyu Park, Hee-Yeun Kim, Byonghyok Choi, Hansang Cho, Byungkwan Kim, Soomok Lee, Mingu Jeon, and Seong-Woo Kim</div>
                         <div class="pub-venue"><i>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2025</i></div>
                         <div class="pub-links">
                             <a href="https://ieeexplore.ieee.org/document/11246461" target="_blank">IEEE</a>
@@ -382,11 +446,11 @@
                     </div>
                 </div>
             </li>
-    
+
             <li class="pub-item">
                 <div class="pub-row">
                     <div class="pub-media">
-                        <a href="https://www.youtube.com/watch?v=qIgP9w6GB9o" target="_blank">
+                        <a href="https://www.youtube.com/watch?v=qIgP9w6GB9o" target="_blank" class="pub-thumb-link">
                             <img src="imgs/IROS_2025_2.png" alt="Video Demo" class="pub-thumb">
                         </a>
                     </div>
@@ -402,11 +466,11 @@
                     </div>
                 </div>
             </li>
-    
+
             <li class="pub-item">
                 <div class="pub-row" style="border-bottom: none;">
                     <div class="pub-media">
-                        <a href="https://ieeexplore.ieee.org/document/11097630" target="_blank">
+                        <a href="https://ieeexplore.ieee.org/document/11097630" target="_blank" class="pub-thumb-link">
                             <img src="imgs/IV_2025.png" alt="Paper Thumbnail" class="pub-thumb">
                         </a>
                     </div>
@@ -420,10 +484,11 @@
                     </div>
                 </div>
             </li>
+
             <li class="pub-item">
                 <div class="pub-row">
                     <div class="pub-media">
-                        <a href="https://www.youtube.com/watch?v=TTrg3_sEC64" target="_blank">
+                        <a href="https://www.youtube.com/watch?v=TTrg3_sEC64" target="_blank" class="pub-thumb-link">
                             <img src="imgs/TITS_2025.png" alt="T-ITS Sound" class="pub-thumb">
                         </a>
                     </div>
@@ -443,7 +508,10 @@
 
     <div class="ack">
         <p><strong>Acknowledgement</strong></p>
-        <p>This work was supported by Seoul National University. This paper was supported by Korea Institute for Advancement of Technology(KIAT) grant funded by the Korea Government(MOTIE). </p>
+        <p>
+            This work was supported by Seoul National University. This paper was supported by the Korea Institute for Advancement of Technology (KIAT) grant funded by the Korea Government (MOTIE).
+            We also sincerely thank Hanbi Baek, Heeyeun Kim, Min-Taek Oh, and Keonwoo Kim for their valuable help in the dataset construction process.
+        </p>
     </div>
 
 </body>
