@@ -21,14 +21,6 @@ In particular, for the dataset release, we are carefully processing privacy-sens
 We plan to release the following resources soon:
 
 - Dataset and annotations  
-  - The dataset is currently being prepared with privacy-preserving anonymization.
-  - We expect to make it publicly available no later than August.
-
-- Model checkpoints  
-  - The model checkpoints will be released before August.
-
-- Train code and inference code  
-  - The training and inference code are currently being cleaned up and documented.
-  - We plan to release them before August.
+  - The dataset and annotations have been prepared and are currently undergoing intellectual property review.
 
 Stay tuned for updates!
