@@ -1,0 +1,24 @@
+# Create with: conda env create -f environment.yml
+# Activate:    conda activate cvpr_ws
+# Update:      conda env update -f environment.yml --prune
+name: cvpr_ws
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pytorch
+  - torchvision
+  - pytorch-cuda=12.1 # works well on RTX 3090 (Ampere) if your NVIDIA driver >= 535
+  - cudnn
+  - numpy
+  - pandas
+  - pillow
+  - pyyaml
+  - scikit-learn
+  - matplotlib
+  - openpyxl # reads the wheel-encoder .xlsx files
+  - pip:
+      - tqdm
