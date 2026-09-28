@@ -8,7 +8,8 @@
 
 
 ## 📄 Paper  
-🚧 *Coming Soon*  
+<a href="https://link.springer.com/chapter/10.1007/978-3-032-37356-4_7" target="_blank" rel="noopener noreferrer">Springer</a>
+<a href="https://arxiv.org/abs/2609.27346" target="_blank" rel="noopener noreferrer">arXiv</a>
 
 
 
